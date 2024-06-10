@@ -167,11 +167,11 @@ def login(user, password):
         }
     r2 = requests.post(url2, data=data2, headers=headers).json()
     login_token = r2["token_info"]["login_token"]
-    # print("login_token获取成功！")
-    # print(login_token)
+    print("login_token获取成功！")
+    print(login_token)
     userid = r2["token_info"]["user_id"]
-    # print("userid获取成功！")
-    # print(userid)
+    print("userid获取成功！")
+    print(userid)
 
     return login_token, userid
 
@@ -180,6 +180,7 @@ def login(user, password):
 def main(_user, _passwd, min_1, max_1):
     user = str(_user)
     password = str(_passwd)
+    print(user,password)
     step = str(random.randint(min_1, max_1))
     print("已设置为随机步数(" + str(min_1) + "~" + str(max_1) + ")")
     if user == '' or password == '':
