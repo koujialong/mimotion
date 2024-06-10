@@ -114,12 +114,7 @@ def get_code(location):
 def login(user, password):
     is_phone = False
     print("login!!!!")
-    if re.match(r'\d{11}', user):
-        is_phone = True
-    if is_phone:
-        url1 = "https://api-user.huami.com/registrations/+86" + user + "/tokens"
-    else:
-        url1 = "https://api-user.huami.com/registrations/" + user + "/tokens"
+    url1 = "https://api-user.huami.com/registrations/" + user + "/tokens"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2"
@@ -130,7 +125,6 @@ def login(user, password):
         "redirect_uri": "https://s3-us-west-2.amazonaws.com/hm-registration/successsignin.html",
         "token": "access"
     }
-    print("url1",url1)
     r1 = requests.post(url1, data=data1, headers=headers, allow_redirects=False)
     location = r1.headers["Location"]
     print("login rrrr",r1,location)
