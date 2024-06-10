@@ -112,6 +112,7 @@ def get_code(location):
 # 登录
 def login(user, password):
     is_phone = False
+    print("login!!!!")
     if re.match(r'\d{11}', user):
         is_phone = True
     if is_phone:
@@ -128,6 +129,7 @@ def login(user, password):
         "redirect_uri": "https://s3-us-west-2.amazonaws.com/hm-registration/successsignin.html",
         "token": "access"
     }
+    print("url1",url1)
     r1 = requests.post(url1, data=data1, headers=headers, allow_redirects=False)
     location = r1.headers["Location"]
     try:
