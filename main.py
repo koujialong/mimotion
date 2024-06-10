@@ -6,6 +6,7 @@ import random
 import re
 import sys
 import time
+import os
 
 import requests
 
@@ -180,8 +181,10 @@ def login(user, password):
 
 # 主函数
 def main(_user, _passwd, min_1, max_1):
-    user = str(_user)
-    password = str(_passwd)
+    user = os.environ['USER']
+    password = os.environ['PWD']
+    # user = str(_user)
+    # password = str(_passwd)
     print(user,password)
     step = str(random.randint(min_1, max_1))
     print("已设置为随机步数(" + str(min_1) + "~" + str(max_1) + ")")
