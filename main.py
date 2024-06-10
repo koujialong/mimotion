@@ -133,6 +133,7 @@ def login(user, password):
     print("url1",url1)
     r1 = requests.post(url1, data=data1, headers=headers, allow_redirects=False)
     location = r1.headers["Location"]
+    print("login rrrr",r1,location)
     try:
         code = get_code(location)
     except:
@@ -185,7 +186,7 @@ def main(_user, _passwd, min_1, max_1):
     password = os.environ['PWD']
     # user = str(_user)
     # password = str(_passwd)
-    print(user,password)
+    print("用户密码",user,password)
     step = str(random.randint(min_1, max_1))
     print("已设置为随机步数(" + str(min_1) + "~" + str(max_1) + ")")
     if user == '' or password == '':
